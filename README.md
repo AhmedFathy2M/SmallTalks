@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SmallTalks
 =======
 # SmallTalk
@@ -54,6 +53,3 @@ ________________________________________________________________________________
 ## Technologies
 
 The project was made using ASP.Net Core, Angular, SQL-Server.
-
-
->>>>>>> 455f4c0b69aa277e448bf6655dffd1a593e36f04
