@@ -10,10 +10,9 @@ The Normal users' credentials: USER 1 : (Email: fathy@hotmail.com, password: Ahm
 
 USER 2 : (Email: ahmedfathymohamed@hotmail.com, password: AhmedFathy_3m).
 
- USER 3 : (Email: kamel@hotmail.com, password: AhmedFathy_5m).
+USER 3 : (Email: kamel@hotmail.com, password: AhmedFathy_5m).
 
-                    
-To test the project make sure that Sql-Server is running and just run the back-end once using any compiler.
+To test the project make sure that Sql-Server is running and just run the back-end once using any compiler and run "npm install" in terminal or angular terminal if needed.
 __________________________________________________________________________________________________________________
 ## Implementation
 1- Global live chat using SignalR.
