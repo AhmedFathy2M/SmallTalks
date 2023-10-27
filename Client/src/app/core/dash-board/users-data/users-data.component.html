@@ -1,0 +1,168 @@
+
+ 
+    <div id="wrapper">
+ 
+       
+       <div id="page-wrapper" >
+         <div id="page-inner">
+               <div class="row">
+                   <div class="col-md-12">
+                       <h2> <strong>Public Info</strong> </h2>
+                   </div>
+               </div>
+               <!-- /. ROW  -->
+               <hr />
+               <div class="row">
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      
+<br />
+
+                   </div>
+                  
+                  
+               <!-- /. ROW  -->
+               <hr>
+               <div class="row">
+                   <div class="col-lg-4 col-md-4">
+                    <a routerLink="/dashboard"> <i class="fa fa-arrow-left fa-3x"></i>
+                    </a>
+                    
+                   </div>
+                   <div class="col-lg-4 col-md-4">
+                     <strong> <h2>You are able to see user info in this page. </h2></strong>
+                   </div>
+                   <div class="col-lg-4 col-md-4">
+                     
+                   </div>
+               </div>
+               <hr>
+               <div class="row">
+                   <div class="col-lg-6 col-md-6">
+                       <h5> <strong> Registered Users </strong></h5>
+                       <table class="table table-striped table-bordered table-hover">
+                           <thead>
+                               <tr>
+                                   <th>#</th>
+                                   <th>Email</th>
+                                   <th>Display Name</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                            
+                               <tr *ngFor="let user of users let i = index">
+                                <td>{{  i + 1 }}</td>
+                                   <td> {{user.email}}</td>
+                                   <td> {{user.displayName}} </td>
+
+                               </tr>
+                               
+                           </tbody>
+                       </table>
+
+                   </div>
+                   <div class="col-lg-6 col-md-6">
+                    <h5><strong> Online Users</strong></h5>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         
+                            <tr *ngFor="let user of onlineUsers let i = index">
+                             <td>{{  i + 1 }}</td>
+                                <td> {{user}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+               </div>
+               <!-- /. ROW  -->
+               <hr>
+
+
+               <div class="row">
+                   <div class="col-lg-4 col-md-4">
+                       <h5>About</h5>
+                       <div class="panel panel-primary">
+                           <div class="panel-heading">
+                               Admin
+                           </div>
+                           <div class="panel-body">
+                               <p>As an admin of the page you can check the current users of the page and the online ones who are chatting. Be respectful as an admin to set an example.</p>
+                           </div>
+                           <div class="panel-footer">
+                               Respect, Honor, and Dignity.
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-lg-4 col-md-4">
+                       <h5>User Code</h5>
+                       <div class="panel-group" id="accordion">
+                           <div class="panel panel-default">
+                               <div class="panel-heading">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" routerLink="/about-us" class="collapsed">About Us</a>
+                                   </h4>
+                               </div>
+                               <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                                   <div class="panel-body">
+                          
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="panel panel-default">
+                               <div class="panel-heading">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" routerLink="/home">Home</a>
+                                   </h4>
+                               </div>
+                               <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                                   
+                               </div>
+                           </div>
+                           <div class="panel panel-default">
+                               <div class="panel-heading">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse"  routerLink="/dashboard" class="collapsed">Dashboard</a>
+                                   </h4>
+                               </div>
+                               <div id="collapseThree" class="panel-collapse collapse">
+                                 
+
+                                       
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-lg-4 col-md-4">
+                       <h5>Quick Accesss</h5>
+                     
+                            <a routerLink="/home" data-toggle="tab">Home</a> 
+                            <br>
+                           <a routerLink="/chat" data-toggle="tab">Chat</a> 
+                           <br>
+                         <a routerLink="/dashboard" data-toggle="tab">Dashboard</a>
+                        
+
+                      
+                       
+                   </div>
+
+               </div>
+               <!-- /. ROW  -->
+               <hr />
+                
+
+
+           </div>
+           </div>
+
+       </div>
+   
+
+

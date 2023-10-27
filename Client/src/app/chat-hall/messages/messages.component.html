@@ -1,0 +1,19 @@
+<div style="overflow-y: auto; height: 450px;">
+    <p class="card-text" *ngFor="let message of messages">
+        <span class="text-primary"> {{message.from}}:</span>
+        <span class="ml-1" *ngIf="!message.audio"> {{message.content}}</span>
+        <span class="ml-1" *ngIf="message.image"> <img [src]="message.image.src" alt="Image" width="200px" height="200px" /> </span>
+        <span class="ml-1" *ngIf="message.audio">
+            <audio controls>
+                <source [src]="message.audio.src" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+            <audio > play me </audio>
+        </span>
+        <br>
+        <span class="ml-1 text-muted">Sent at {{ message.time | date: 'medium' }}</span>
+        <br>
+        <span class="ml-1 text-muted" *ngIf="this.messageIsSeen(message)">Seen</span>
+    </p>
+
+</div>

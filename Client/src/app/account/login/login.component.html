@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center mt-5">
+<div class="col-3">
+    <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="text-center mt-5 !important">
+          <img class="mt-5" src="assets/Images/Icon.jpg" alt="" width="72" height="72">
+          <h1 class="h3 mb-2 font-weight-normal" style="color: blueviolet;">SmallTalks</h1>
+          <p>Have the maximum amount of fun while chatting with your pals!</p>
+          <h3 style="color: green;">It is time to SOCIALIZE!</h3>
+        </div>
+      
+        <div class="form-label-group">
+          <input  formControlName="email" type="email"  id="inputEmail" class="form-control"  [class.invalid-input]="loginForm?.get('email')?.invalid && loginForm?.get('email')?.touched"  [class.valid-input]="loginForm?.get('email')?.valid"  placeholder="Email address"  required  autofocus  >
+          <label for="inputEmail">Email address</label>
+          <span class="text-danger" *ngIf="loginForm?.get('email')?.invalid && loginForm?.get('email')?.touched">
+            <ng-container *ngIf="loginForm?.get('email')?.hasError('required')">Email address is required</ng-container>
+            <ng-container *ngIf="loginForm?.get('email')?.hasError('email')">Email address is not valid</ng-container>
+          </span>
+        </div>
+        
+        <div class="form-label-group">
+          <input formControlName="password" type="password"  id="inputPassword" class="form-control" [class.invalid-input]="loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched"  [class.valid-input]="loginForm?.get('password')?.valid" placeholder="Password"   required>
+          <label for="inputPassword">Password</label>
+          <span class="text-danger" *ngIf="loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched">
+            <ng-container *ngIf="loginForm?.get('password')?.hasError('required')">Password is required</ng-container>
+          </span>
+          <span *ngIf="errorMessage" class="error-message"> <strong> {{ errorMessage }} </strong> </span>
+        </div>
+        
+      
+        <div class="checkbox mb-3">
+          <label>
+            <a routerLink="/register"> <strong style="color: black;"> Haven't registered? </strong> </a>
+          </label>
+        </div>
+        <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">© 2023-2024</p>
+      </form>
+</div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+        <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mt-5 !important">
+              <img class="mt-5" src="assets/Images/Icon.jpg" alt="" width="72" height="72">
+              <h1 class="h3 mb-2 font-weight-normal" style="color: blueviolet;">SmallTalks</h1>
+              <p>Have the maximum amount of fun while chatting with your pals!</p>
+              <h3 style="color: green;">It is time to SOCIALIZE!</h3>
+            </div>
+          
+            <div class="form-label-group">
+                <label for="inputdisplayName">Display Name</label>
+                <input  formControlName="displayName" type="text"  id="inputdisplayName" class="form-control"  [class.invalid-input]="registerForm?.get('displayName')?.invalid && registerForm?.get('displayName')?.touched"  [class.valid-input]="registerForm?.get('displayName')?.valid"  placeholder="Display Name"  required  autofocus  >
+                <span class="text-danger" *ngIf="registerForm?.get('displayName')?.invalid && registerForm?.get('displayName')?.touched">
+                  <ng-container *ngIf="registerForm?.get('displayName')?.hasError('required')">Display name is required</ng-container>
+                  <ng-container *ngIf="registerForm?.get('displayName')?.hasError('displayName')">Email address is not valid</ng-container>
+                </span>
+              </div>
+
+            <div class="form-label-group">
+                <label for="inputEmail">Email address</label>
+              <input  formControlName="email" type="email"  id="inputEmail" class="form-control"  [class.invalid-input]="registerForm?.get('email')?.invalid && registerForm?.get('email')?.touched"  [class.valid-input]="registerForm?.get('email')?.valid"  placeholder="Email address"  required  autofocus  >
+              <span class="text-danger" *ngIf="registerForm?.get('email')?.invalid && registerForm?.get('email')?.touched">
+                <ng-container *ngIf="registerForm?.get('email')?.hasError('required')">Email address is required</ng-container>
+                <ng-container *ngIf="registerForm?.get('email')?.hasError('email')">Email address is not valid</ng-container>
+              </span>
+            </div>
+            <span class="text-danger" *ngIf="emailErrorMessage">{{ emailErrorMessage }}</span>
+            
+            <div class="form-label-group">
+                <label for="inputPassword">Password</label>
+              <input formControlName="password" type="password"  id="inputPassword" class="form-control" [class.invalid-input]="registerForm?.get('password')?.invalid && registerForm?.get('password')?.touched"  [class.valid-input]="registerForm?.get('password')?.valid" placeholder="Password"   required>
+              <span class="text-danger" *ngIf="registerForm?.get('password')?.invalid && registerForm?.get('password')?.touched">
+                <ng-container *ngIf="registerForm?.get('password')?.hasError('required')">Password is required</ng-container>
+                <ng-container *ngIf="registerForm.get('password')?.hasError('pattern')">Password must meet the specified criteria</ng-container>
+              </span>
+            </div>
+        
+            <div class="checkbox mb-3">
+              <label>
+                <a routerLink="/login"> <strong style="color: black;"> Already logged in? </strong> </a>
+              </label>
+            </div>
+            <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            <p class="mt-5 mb-3 text-muted text-center">© 2023-2024</p>
+          </form>
+    </div>
+    
+    </div>
+    

@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<br>
+<div class="row mt-3">
+    <div class="col-lg-2" style="margin-left: 20px; margin-right: 20px;">
+        <div class="card border-secondary mb-3">
+            <div class="card-header h3 text-muted text-center" style="border: 2px solid green;">Online Users</div>
+            <div class="card-body" style="min-height: 555px; border: 2px solid #000;">
+               
+
+                <div class="row mt-1" *ngFor="let user of accountService.onlineUsers"> 
+                    <div class="col">
+                        <div class="d-grid">
+                            <button type="button" class="btn card-text btn-block"
+                            [ngClass]="{'btn-success': user === (currentUserName$ | async), 'btn-dark': user !== (currentUserName$ | async) }"
+                            [disabled]="user === (currentUserName$ | async)"
+                            (dblclick)="openPrivateChat(user)"
+                            >{{user}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card border-secondary" style="border: 2px solid green;">
+            <div class="card-header  text-center"> <strong> Public Chat </strong></div>
+            <div class="card-body" style="min-height: 500px;">
+               <app-messages [messages]="accountService.messages" > </app-messages>
+
+            </div>
+            <div class="card-footer">
+               <app-chat-input (contentEmitter)="sendMessage($event)"></app-chat-input> 
+               
+               <button (mousedown)="startRecording()" (mouseup)="stopRecording()"  class="transparent-button">
+                    <mat-icon>mic</mat-icon>
+              </button>
+              &nbsp; 
+              <span *ngIf="isRecording">
+                <strong style="color: red;">{{ timer }} seconds left</strong>
+              </span>
+               <input type="file" (change)="handleImageInput($event)" style="display: none" #fileInput accept=".jpeg, .jpg, .png, image/jpeg, image/png">
+               <button (click)="fileInput.click() " class="transparent-button" > <mat-icon>attach_file</mat-icon> </button>
+               <!-- <button (click)="sendAudio()">Send Audio</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+

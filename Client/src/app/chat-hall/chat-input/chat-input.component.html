@@ -1,0 +1,19 @@
+<form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+    <div class="row">
+        <div class="col-12">
+            <input [maxlength]="maxMessageLength" type="text" [(ngModel)]="content" name="content" required
+                class="form-control" placeholder="Start Chatting">
+
+        </div>
+        <div class="d-grid">
+            <button [disabled]="!messageForm.valid" class="pushable" type="submit">
+                <span class="front">
+                  <strong> Send</strong> 
+                  </span>
+            </button>
+
+        </div>
+
+    </div>
+
+</form>

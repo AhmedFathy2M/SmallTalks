@@ -1,0 +1,47 @@
+<nav>
+    <div class="wrapper">
+      <div class="logo"><a href="/home">SmallTalk </a></div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+      <ng-container *ngIf="(currentUser$ | async) === null" >
+        <li><a routerLink="/account/login">Login</a></li>
+        <li><a routerLink="/account/register">Register</a></li>
+      </ng-container>     
+      <li>
+          <a routerLink="/home" class="desktop-item">Home</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item">Dropdown Menu</label>
+        </li>
+        <ng-container *ngIf="(currentUser$ | async)" >
+          <li><a routerLink="/home" (click)="Logout()">Logout</a></li>
+        </ng-container>  
+        <li>
+          <ng-container *ngIf="(currentUser$ | async) as user">
+            <li *ngIf="user.role === 'admin'">
+              <a routerLink="/dashboard">DashBoard</a>
+            </li>
+          </ng-container>
+          
+        </li>
+        <li>
+          <ng-container *ngIf="(currentUser$ | async) as user">
+            <li>
+              <a routerLink="/chat">Chat</a>
+            </li>
+          </ng-container>
+          
+        </li>
+        <ng-container *ngIf="currentUser$ | async as user">
+          <li><a>Welcome {{ user?.displayName }}</a></li>
+        </ng-container>
+        <ng-container *ngIf="(currentUser$ | async) === null" >
+          <li><a>Anonymous User</a></li>
+        </ng-container>    
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+  
+  
